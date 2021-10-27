@@ -12,6 +12,7 @@ app.get("/todo",todoController.getAllTodos);
  app.post("/todo",todoController.addTodo);
  app.put("/todo/:id",todoController.updateTodo);
  app.delete("/todo/:id",todoController.deleteTodo);
+ app.get("/todo/:id",todoController.getDataWithId);
 
 
  app.listen(port,function(error){
