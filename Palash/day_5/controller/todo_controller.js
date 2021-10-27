@@ -5,8 +5,6 @@ module.exports.getAllTodos = async (req, res) => {
     //seacrch the db and fetch all the todo
     const todos = await TodoModel.find({});
 
-    // console.log(todos);
-
     return res.status(200).json({
       success: true,
       message: "List of all Todos.",
