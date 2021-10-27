@@ -22,6 +22,26 @@ module.exports.getAllTodos = async (req, res) => {
   }
 };
 
+module.exports.getUserById = async (req, res) => {
+  try{
+    const todo = await TodoModel.findById({_id:req.params.id});
+  return res.status(200).json({
+    success: true,
+    message: "data is fetched",
+    todo:todo,
+  });
+  }
+  catch(error){
+    return res.status(500).json({
+      success: false,
+      message: "Error!",
+      error: error.message,
+    });
+
+  }
+
+}
+
 module.exports.addTodo = async (req, res) => {
   const { title, completed } = req.body;
 
@@ -51,10 +71,26 @@ module.exports.updateTodo = async (req, res) => {
       { title, completed },
       { new: true }
     );
+
     return res.status(200).json({
       success: true,
       message: "Todo Updated successfully",
       updatedTodo: data,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+module.exports.deleteTodo = async (req, res) => {
+  try {
+    const newdata = await TodoModel.findOneAndDelete({ _id: req.params.id });
+    return res.status(200).json({
+      success: true,
+      message: "Todo Deleted Successfully",
+      deleteTodo: newdata,
     });
   } catch (error) {
     return res.status(500).json({

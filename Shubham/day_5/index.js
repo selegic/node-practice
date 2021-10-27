@@ -10,10 +10,15 @@ app.use(express.urlencoded({ extended: true }));
 //include the controller
 const TodoController = require("./controller/todo_controller");
 
+app.get("/",(req,res)=>{
+  res.send('Server Working!!')
+})
+
 app.get("/todos", TodoController.getAllTodos);
 app.post("/todos", TodoController.addTodo);
 app.put("/todos/:id", TodoController.updateTodo);
-
+app.delete("/todos/:id",TodoController.deleteTodo);
+app.get("/todos/:id",TodoController.getUserById);
 app.listen(port, function (error) {
   if (error) {
     console.log(error);
