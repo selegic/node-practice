@@ -1,2 +1,2 @@
 # node-practice
-Learning Projects
+Learning node.js Projects
