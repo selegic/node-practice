@@ -1,16 +1,16 @@
 {
-  "name": "serverfile",
+  "name": "webdevelopment",
   "version": "1.0.0",
-  "description": "my first express server",
-  "main": "server.js",
+  "description": "",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Sandipan",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1",
-    "jsforce": "^1.11.0"
+    "body-parser": "^1.19.1",
+    "express": "^4.17.1"
   }
 }
